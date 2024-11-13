@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Datos de Cliente y Pedido</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .container {
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .category {
+            margin: 15px 0;
+        }
+        .references {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .references input[type="number"] {
+            width: 50px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Formulario de Cliente y Pedido</h2>
+        
+        <!-- Sección para el nombre del usuario -->
+        <label for="username">Nombre Kam:</label>
+        <input type="text" id="username" name="username" required>
+
+        <!-- Sección para los datos del cliente -->
+        <label for="clientName">Nombre del Cliente:</label>
+        <input type="text" id="clientName" name="clientName" required>
+        
+        <label for="zone">Zona:</label>
+        <input type="text" id="zone" name="zone" required>
+        
+        <label for="channel">Canal:</label>
+        <input type="text" id="channel" name="channel" required>
+
+        <!-- Categorías de productos -->
+        <div class="category">
+            <label for="category1">Higienicos S.P:</label>
+            <select id="category1" name="category1" onchange="showReferences('ref1')">
+                <option value="">Selecciona la categoria</option>
+                <option value="Higienicos S.P">Higienicos S.P</option>
+                
+            </select>
+            <div id="ref1" style="display: none;">
+                <div class="references">
+                    <span>1TTCO034333 - PH ELITE JUMBO DH BLANCO ECO x4 250 mts:</span>
+                    <input type="number" name="ref1a_qty" min="0" placeholder="Cantidad">
+                </div>
+                <div class="references">
+                    <span>1TTCO380374 - PH ELITE JUMBO HS NATURAL X4 500 mts:</span>
+                    <input type="number" name="ref1b_qty" min="0" placeholder="Cantidad">
+                </div>
+                <div class="references">
+                    <span>1TTCO610011 - PH ELITE ROLLO DH BLANCO x1/30  24,5 mts:</span>
+                    <input type="number" name="ref1c_qty" min="0" placeholder="Cantidad">
+                </div>
+            </div>
+        </div>
+
+        <!-- Repite la estructura para otras categorías de productos -->
+        <div class="category">
+            <label for="category2">Toalla Rollo S.P:</label>
+            <select id="category2" name="category2" onchange="showReferences('ref2')">
+                <option value="">Selecciona la categoria</option>
+                <option value="Toalla Rollo S.P">Toalla Rollo S.P</option>
+                
+            </select>
+            <div id="ref2" style="display: none;">
+                <div class="references">
+                    <span>Ref 1TTCO611013:</span>
+                    <input type="number" name="ref2a_qty" min="0" placeholder="Cantidad">
+                </div>
+                <div class="references">
+                    <span>Ref 1TTCO611014:</span>
+                    <input type="number" name="ref2b_qty" min="0" placeholder="Cantidad">
+                </div>
+                <div class="references">
+                    <span>Ref 1TTCO611015:</span>
+                    <input type="number" name="ref2c_qty" min="0" placeholder="Cantidad">
+                </div>
+            </div>
+        </div>
+
+	<!-- Repite la estructura para otras categorías de productos -->
+
+	<div class="category">
+            <label for="category3">Toalla Inter S.P:</label>
+            <select id="category3" name="category3" onchange="showReferences('ref3')">
+                <option value="">Selecciona la categoria</option>
+                <option value="Toalla Inter S.P">Toalla Inter S.P</option>
+                
+            </select>
+            <div id="ref3" style="display: none;">
+                <div class="references">
+                    <span>Ref 1TTCO631003:</span>
+                    <input type="number" name="ref3a_qty" min="0" placeholder="Cantidad">
+                </div>
+                <div class="references">
+                    <span>Ref 1TTCO631004:</span>
+                    <input type="number" name="ref3b_qty" min="0" placeholder="Cantidad">
+                </div>
+                <div class="references">
+                    <span>Ref 1TTCO632009:</span>
+                    <input type="number" name="ref3c_qty" min="0" placeholder="Cantidad">
+                </div>
+            </div>
+        </div>
+
+        <!-- Añadir categorías adicionales según sea necesario -->
+
+        <!-- Botón de envío -->
+        <button type="submit">Enviar</button>
+    </div>
+
+    <script>
+        // Función para mostrar las referencias de cada categoría
+        function showReferences(refId) {
+            document.getElementById(refId).style.display = "block";
+        }
+    </script>
+</body>
+</html>
